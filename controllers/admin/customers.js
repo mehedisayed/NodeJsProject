@@ -17,7 +17,7 @@ router.get('/edit/:id', function(req, res) {
     customerModel.getById(req.params.id, function(result){
         customerModel.getAllUserType(function(usertype)
          {
-            res.render('admin/customers/edit_employees', {user: result,usertypelist:usertype});
+            res.render('admin/customers/edit_customers', {user: result,usertypelist:usertype});
          });
     });
 
@@ -57,7 +57,7 @@ router.get('/delete/:id', function(req, res) {
 router.get('/new', function(req, res) {
     customerModel.getAllUserType(function(results)
         {
-           res.render('admin/customers/edit_employees', {user:'',usertypelist:results});
+           res.render('admin/customers/edit_customers', {user:'',usertypelist:results});
         });
 });
 router.post('/new', function(req, res) {
@@ -66,7 +66,9 @@ router.post('/new', function(req, res) {
         phone: req.body.phone,
         email:req.body.email,
         address: req.body.address,
-        usertypeid:req.body.usertypeid
+        usertypeid:req.body.usertypeid,
+        username:req.body.username,
+        password:req.body.password
     };
 
     customerModel.insert(user, function(status){

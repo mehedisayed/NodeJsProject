@@ -139,6 +139,9 @@
                           User Type
                         </th>
                         <th>
+                          User Name
+                        </th>
+                        <th>
                           Action
                         </th>
                       </thead>
@@ -162,6 +165,9 @@
                           </td>
                           <td>
                             <%= userlist[i].usertypename %>
+                          </td>
+                          <td>
+                            <%= userlist[i].username %>
                           </td>
                           <td>
                             <a href="/admin/employees/edit/<%= userlist[i].userid %>" class="btn btn-primary">Edit</a>

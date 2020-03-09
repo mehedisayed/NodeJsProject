@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
         if(results.length > 0){
             res.render('admin/employees/employees', {userlist: results});
         }else{
-            res.redirect('/admin');
+            res.redirect('/admin/employees/new');
         }
     });
     
@@ -32,10 +32,9 @@ router.post('/edit/:id', function(req, res) {
         address: req.body.address,
         usertypeid:req.body.usertypeid
     };
-
-    employeeModel.update(user, function(status){
+    employeeModel.updateUsers(user, function(status){
         if(status){
-            res.redirect('/admin/employees');
+        res.redirect('/admin/employees');    
         }else{
             res.redirect('/admin/employees/edit/'+req.params.id);
         }
@@ -66,14 +65,16 @@ router.post('/new', function(req, res) {
         phone: req.body.phone,
         email:req.body.email,
         address: req.body.address,
-        usertypeid:req.body.usertypeid
+        usertypeid:req.body.usertypeid,
+        username:req.body.username,
+        password:req.body.password
     };
 
     employeeModel.insert(user, function(status){
         if(status){
             res.redirect('/admin/employees');
         }else{
-            res.redirect('/admin/employees/new');
+            res.send('/admin/employees/new');
         }
     });
 });
