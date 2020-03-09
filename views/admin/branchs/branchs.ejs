@@ -70,6 +70,12 @@
               <p>Branch List</p>
             </a>
           </li>
+          <li class="nav-item ">
+            <a class="nav-link" href='/admin/place'>
+              <i class="material-icons">place</i>
+              <p>Place List</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>  <div class="main-panel">
@@ -138,6 +144,9 @@
                           Branch Name
                         </th>
                         <th>
+                          Image
+                        </th>
+                        <th>
                           Place Name
                         </th>
                         <th>
@@ -152,6 +161,9 @@
                           </td>
                           <td>
                             <%= branchlist[i].branchname %>
+                          </td>
+                          <td>
+                            <%= branchlist[i].image %>
                           </td>
                           <td>
                             <%= branchlist[i].placename %>

@@ -28,7 +28,8 @@ router.post('/edit/:id', function(req, res) {
     var branch = {
         branchid: req.params.id,
         branchname: req.body.name,
-        placeid:req.body.placeid
+        placeid:req.body.placeid,
+        image:req.body.image
     };
 
     branchModel.update(branch, function(status){
@@ -61,7 +62,8 @@ router.get('/new', function(req, res) {
 router.post('/new', function(req, res) {
     var branch = {
         branchname: req.body.name,
-        placeid:req.body.placeid
+        placeid:req.body.placeid,
+        image:req.body.image
     };
     branchModel.insert(branch, function(status){
         if(status){

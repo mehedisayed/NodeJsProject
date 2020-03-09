@@ -12,6 +12,7 @@ var adminCustomer=require('./controllers/admin/customers');
 var adminProfile=require('./controllers/admin/profile');
 var adminHotel=require('./controllers/admin/hotels');
 var adminBranch=require('./controllers/admin/branchs');
+var adminPlace=require('./controllers/admin/place');
 
 //configuration
 app.set('view engine', 'ejs');
@@ -30,6 +31,7 @@ app.set('view engine', 'ejs');
  app.use('/admin/profile', adminProfile);
  app.use('/admin/hotels', adminHotel);
  app.use('/admin/branchs', adminBranch);
+ app.use('/admin/place', adminPlace);
  
 //routes
 app.get('/', function(req, res){

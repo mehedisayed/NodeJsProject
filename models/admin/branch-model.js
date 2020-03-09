@@ -2,7 +2,7 @@ var db = require('../db');
 
 module.exports= {
 	getAll : function(callback){
-		var sql = "select * from branch b,place p where p.placeid=b.placeid";
+		var sql = "select b.*,p.placename from branch b,place p where p.placeid=b.placeid";
 		db.getResults(sql, null, function(results){
 			if(results.length > 0){
 				callback(results);
@@ -12,7 +12,7 @@ module.exports= {
 		});
 	},
 	getById : function(id, callback){
-		var sql = "select * from branch b,place p where p.placeid=b.placeid and b.branchid=?";
+		var sql = "select b.*,p.placename from branch b,place p where p.placeid=b.placeid and b.branchid=?";
 		db.getResults(sql, [id], function(results){
 			if(results.length > 0){
 				callback(results[0]);
@@ -22,8 +22,8 @@ module.exports= {
 		});
 	},
 	insert: function(branch, callback){
-		var sql = "insert into branch values(?,?,?)";
-		db.execute(sql, [null, branch.branchname,branch.placeid], function(status){
+		var sql = "insert into branch values(?,?,?,?)";
+		db.execute(sql, [null, branch.branchname,branch.image,branch.placeid], function(status){
 			if(status){
 				callback(true);
 			}else{
@@ -42,8 +42,8 @@ module.exports= {
 		});
 	},
 	update: function(branch, callback){
-		var sql = "update branch set branchname=?, placeid=? where branchid=?";
-		db.execute(sql, [branch.branchname, branch.placeid,branch.branchid], function(status){
+		var sql = "update branch set branchname=?, image=?,placeid=? where branchid=?";
+		db.execute(sql, [branch.branchname,branch.image, branch.placeid,branch.branchid], function(status){
 			if(status){
 				callback(true);
 			}else{
