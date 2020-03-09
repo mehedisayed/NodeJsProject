@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../../img/apple-icon.png">
   <link rel="icon" type="image/png" href="../../img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Employees List </title>
+  <title>Hotels List </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -46,7 +46,7 @@
               <p>User Profile</p>
             </a>
           </li>
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href='/admin/employees'>
               <i class="material-icons">people</i>
               <p>Employees List</p>
@@ -58,7 +58,7 @@
               <p>Customers List</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active ">
             <a class="nav-link" href='/admin/hotels'>
               <i class="material-icons">hotel</i>
               <p>Hotel List</p>
@@ -71,7 +71,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Employees</a>
+            <a class="navbar-brand" href="javascript:void(0)">Hotels</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
             <span class="sr-only">Toggle navigation</span>
@@ -118,10 +118,10 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Employees List</h4>
+                  <h4 class="card-title ">Hotels List</h4>
                 </div>
                 <div class="card-body">
-                  <a href="/admin/employees/new" class="btn btn-info">New Employee</a>
+                  <a href="/admin/hotels/new" class="btn btn-info">New Hotel</a>
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
@@ -129,54 +129,48 @@
                           ID
                         </th>
                         <th>
-                          Full Name
+                          Hotel Name
                         </th>
                         <th>
-                          Phone
+                          Hotel Type
                         </th>
                         <th>
-                          Email
+                          Room Type
                         </th>
                         <th>
-                          Address
+                          Hotel Image
                         </th>
                         <th>
-                          User Type
-                        </th>
-                        <th>
-                          User Name
+                          Branch Name
                         </th>
                         <th>
                           Action
                         </th>
                       </thead>
                       <tbody>
-                        <% for(var i=0; i < userlist.length; i++){ %>
+                        <% for(var i=0; i < hotellist.length; i++){ %>
                         <tr>
                           <td>
-                            <%= userlist[i].userid %>
+                            <%= hotellist[i].hotelid %>
                           </td>
                           <td>
-                            <%= userlist[i].fullname %>
+                            <%= hotellist[i].hotelname %>
                           </td>
                           <td>
-                            <%= userlist[i].phone %>
+                            <%= hotellist[i].hoteltype %>
                           </td>
                           <td>
-                            <%= userlist[i].email %>
+                            <%= hotellist[i].roomtype %>
                           </td>
                           <td>
-                            <%= userlist[i].address %>
+                            <%= hotellist[i].hotelimage %>
                           </td>
                           <td>
-                            <%= userlist[i].usertypename %>
+                            <%= hotellist[i].branchname %>
                           </td>
                           <td>
-                            <%= userlist[i].username %>
-                          </td>
-                          <td>
-                            <a href="/admin/employees/edit/<%= userlist[i].userid %>" class="btn btn-primary">Edit</a>
-                            <a href="/admin/employees/delete/<%= userlist[i].userid %>" class="btn btn-danger">Delete</a>
+                            <a href="/admin/hotels/edit/<%= hotellist[i].hotelid %>" class="btn btn-primary">Edit</a>
+                            <a href="/admin/hotels/delete/<%= hotellist[i].hotelid %>" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
                         <%  } %>

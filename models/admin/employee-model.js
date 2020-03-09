@@ -1,8 +1,8 @@
-var db = require('./db');
+var db = require('../db');
 
 module.exports= {
 	getAll : function(callback){
-		var sql = "select * from users u,usertype ut where u.usertypeid=ut.usertypeid and ut.usertypename='customer'";
+		var sql = "select * from users u,usertype ut where u.usertypeid=ut.usertypeid and ut.usertypename !='customer'";
 		db.getResults(sql, null, function(results){
 			if(results.length > 0){
 				callback(results);
@@ -22,7 +22,7 @@ module.exports= {
 		});
 	},
 	getAllUserType : function(callback){
-		var sql = "select * from usertype where usertypename='customer'";
+		var sql = "select * from usertype where usertypename!='customer'";
 		db.getResults(sql, null, function(results){
 			if(results.length > 0){
 				callback(results);
@@ -41,7 +41,7 @@ module.exports= {
 			}
 		});
 	},
-	update : function(user, callback){
+	updateUsers : function(user, callback){
 		var sql = "update users set fullname=?, phone=?, email=?, address=?, usertypeid=? where userid=?";
 		db.execute(sql, [user.name,user.phone,user.email, user.address,user.usertypeid, user.id], function(status){
 			if(status){

@@ -9,6 +9,8 @@ var app = express();
 var adminEmployeeList=require('./controllers/admin/employees');
 var adminDashboard=require('./controllers/admin/dashboard');
 var adminCustomer=require('./controllers/admin/customers');
+var adminProfile=require('./controllers/admin/profile');
+var adminHotel=require('./controllers/admin/hotels');
 
 //configuration
 app.set('view engine', 'ejs');
@@ -24,6 +26,8 @@ app.set('view engine', 'ejs');
  app.use('/admin/employees', adminEmployeeList);
  app.use('/admin/dashboard', adminDashboard);
  app.use('/admin/customers', adminCustomer);
+ app.use('/admin/profile', adminProfile);
+ app.use('/admin/hotels', adminHotel);
  
 //routes
 app.get('/', function(req, res){

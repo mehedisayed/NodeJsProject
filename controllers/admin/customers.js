@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var customerModel = require.main.require('./models/customer-model');
+var customerModel = require.main.require('./models/admin/customer-model');
 
 router.get('/', function(req, res) {
     customerModel.getAll(function(results){
