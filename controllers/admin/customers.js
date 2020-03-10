@@ -4,7 +4,7 @@ var customerModel = require.main.require('./models/admin/customer-model');
 
 router.get('/', function(req, res) {
     customerModel.getAll(function(results){
-        if(results.length > 0){
+        if(results.length >= 0){
             res.render('admin/customers/customers', {userlist: results});
         }else{
             res.redirect('/admin');

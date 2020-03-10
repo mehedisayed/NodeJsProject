@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../../img/apple-icon.png">
   <link rel="icon" type="image/png" href="../../img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Branch List </title>
+  <title>Package List </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -58,13 +58,13 @@
               <p>Customers List</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item">
             <a class="nav-link" href='/admin/hotels'>
               <i class="material-icons">hotel</i>
               <p>Hotel List</p>
             </a>
           </li>
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href='/admin/branchs'>
               <i class="material-icons">museum</i>
               <p>Branch List</p>
@@ -76,10 +76,10 @@
               <p>Place List</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active">
             <a class="nav-link" href='/admin/packages'>
               <i class="material-icons">shop</i>
-              <p>Packages List</p>
+              <p>Package List</p>
             </a>
           </li>
         </ul>
@@ -89,7 +89,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Branchs</a>
+            <a class="navbar-brand" href="javascript:void(0)">Packages</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
             <span class="sr-only">Toggle navigation</span>
@@ -136,10 +136,10 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Branchs List</h4>
+                  <h4 class="card-title ">Packages List</h4>
                 </div>
                 <div class="card-body">
-                  <a href="/admin/branchs/new" class="btn btn-info">New Branch</a>
+                  <a href="/admin/packages/new" class="btn btn-info">New Packages</a>
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
@@ -147,36 +147,36 @@
                           ID
                         </th>
                         <th>
-                          Branch Name
+                          Package Name
                         </th>
                         <th>
-                          Image
+                          Hotel Name
                         </th>
                         <th>
-                          Place Name
+                          Price
                         </th>
                         <th>
                           Action
                         </th>
                       </thead>
                       <tbody>
-                        <% for(var i=0; i < branchlist.length; i++){ %>
+                        <% for(var i=0; i < packagelist.length; i++){ %>
                         <tr>
                           <td>
-                            <%= branchlist[i].branchid %>
+                            <%= packagelist[i].packageid %>
                           </td>
                           <td>
-                            <%= branchlist[i].branchname %>
+                            <%= packagelist[i].packagename %>
                           </td>
                           <td>
-                            <%= branchlist[i].image %>
+                            <%= packagelist[i].hotelname %>
                           </td>
                           <td>
-                            <%= branchlist[i].placename %>
+                            <%= packagelist[i].totalcost %>
                           </td>
                           <td>
-                            <a href="/admin/branchs/edit/<%= branchlist[i].branchid %>" class="btn btn-primary">Edit</a>
-                            <a href="/admin/branchs/delete/<%= branchlist[i].branchid %>" class="btn btn-danger">Delete</a>
+                            <a href="/admin/packages/edit/<%= packagelist[i].packageid %>" class="btn btn-primary">Edit</a>
+                            <a href="/admin/packages/delete/<%= packagelist[i].packageid %>" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
                         <%  } %>

@@ -4,7 +4,7 @@ var employeeModel = require.main.require('./models/admin/employee-model');
 
 router.get('/', function(req, res) {
     employeeModel.getAll(function(results){
-        if(results.length > 0){
+        if(results.length >= 0){
             res.render('admin/employees/employees', {userlist: results});
         }else{
             res.redirect('/admin/employees/new');

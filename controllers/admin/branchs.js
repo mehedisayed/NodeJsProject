@@ -4,7 +4,7 @@ var branchModel = require.main.require('./models/admin/branch-model');
 
 router.get('/', function(req, res) {
     branchModel.getAll(function(results){
-        if(results.length > 0){
+        if(results.length >= 0){
             res.render('admin/branchs/branchs', {branchlist: results});
         }else{
             res.redirect('/admin');

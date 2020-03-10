@@ -4,7 +4,7 @@ var hotelModel = require.main.require('./models/admin/hotel-model');
 
 router.get('/', function(req, res) {
     hotelModel.getAll(function(results){
-        if(results.length > 0){
+        if(results.length >= 0){
             res.render('admin/hotels/hotels', {hotellist: results});
         }else{
             res.redirect('/admin');

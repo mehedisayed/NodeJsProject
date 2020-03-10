@@ -4,7 +4,7 @@ var placeModel = require.main.require('./models/admin/place-model');
 
 router.get('/', function(req, res) {
     placeModel.getAll(function(results){
-        if(results.length > 0){
+        if(results.length >= 0){
             res.render('admin/place/place', {placelist: results});
         }else{
             res.redirect('/admin');
