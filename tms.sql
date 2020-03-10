@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2020 at 09:50 PM
+-- Generation Time: Mar 10, 2020 at 06:43 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -70,6 +70,27 @@ INSERT INTO `hotel` (`hotelid`, `hotelname`, `hoteltype`, `roomtype`, `hotelimag
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `packages`
+--
+
+CREATE TABLE `packages` (
+  `packageid` int(11) NOT NULL,
+  `packagename` varchar(150) NOT NULL,
+  `hotelid` int(11) NOT NULL,
+  `totalcost` double NOT NULL,
+  `status` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `packages`
+--
+
+INSERT INTO `packages` (`packageid`, `packagename`, `hotelid`, `totalcost`, `status`) VALUES
+(5, 'fdghj', 1, 652, 'valid');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `payment`
 --
 
@@ -122,7 +143,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `fullname`, `phone`, `email`, `address`, `usertypeid`, `username`, `password`) VALUES
-(13, 'mahbub', '01731569019', 'sm@gmail.com', 'nikunjjo 2', 3, 'mahbub', '12345'),
+(13, 'mahbub', '01731569019', 'sm@gmail.com', 'nikunjjo 2', 1, 'mahbub', '12345'),
 (14, 'Sadikur Rahman', '01629438110', 'sm@gmail.com', 'Dhaka', 3, 'rajon', '12345'),
 (15, 'mishal', '01731569019', 'sm@gmail.com', 'Kuril', 4, 'mishal', '12345'),
 (16, 'partho', '01629438110', 'sm@gmail.com', 'Dhaka', 4, 'partho', '12345');
@@ -167,6 +188,13 @@ ALTER TABLE `hotel`
   ADD KEY `fk_constraint2` (`branchid`);
 
 --
+-- Indexes for table `packages`
+--
+ALTER TABLE `packages`
+  ADD PRIMARY KEY (`packageid`),
+  ADD KEY `hotelid` (`hotelid`);
+
+--
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
@@ -209,6 +237,12 @@ ALTER TABLE `hotel`
   MODIFY `hotelid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `packages`
+--
+ALTER TABLE `packages`
+  MODIFY `packageid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
@@ -247,6 +281,12 @@ ALTER TABLE `branch`
 --
 ALTER TABLE `hotel`
   ADD CONSTRAINT `fk_constraint2` FOREIGN KEY (`branchid`) REFERENCES `branch` (`branchid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `packages`
+--
+ALTER TABLE `packages`
+  ADD CONSTRAINT `packages_ibfk_2` FOREIGN KEY (`hotelid`) REFERENCES `hotel` (`hotelid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `users`
